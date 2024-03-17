@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+
+    
+   <div class="scroll-right">
+    <div class="yeah">YEAH</div>
+    <div class="yeah">YEAH</div>
+    <div class="yeah">YEAH</div>
+    <div class="yeah">YEAH</div>
+    <div class="yeah">YEAH</div>
+    <div class="yeah">YEAH</div>
+    <div class="yeah">YEAH</div>
+    <div class="yeah">YEAH</div>
+    <div class="yeah">YEAH</div>
+    <!-- Add more "yeah" divs here if needed -->
+   </div>    
+   <div class="scroll-left">
+    <!-- Add "yeah" divs here if needed -->
+    <div class="yeah">YEAH</div>
+    <div class="yeah">YEAH</div>
+    <!-- Add more "yeah" divs here if needed -->
+   </div>  
+</div>  
+</body>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body {
+        overflow: hidden;
+        margin: 0%;
+    }
+    .scroll-right, .scroll-left {
+        margin: 0em 0;
+        display: flex;
+        overflow: hidden;
+        width: 100vw;
+        white-space: nowrap;
+        font-size: 5em; /* Adjust font size as needed */
+        height: 10vh;
+        gap: -1em; /* To remove spacing between "yeah" divs */
+    }
+    .yeah {
+        display: inline-flex;
+        width: auto; /* Adjust width of "yeah" divs */
+        height: 10vh;
+        padding: 0 1em; /* Add padding to each "yeah" div */
+        color: rgb(0, 0, 0);
+        white-space: nowrap;
+        font-size: inherit;
+        justify-content: center; /* Center the content horizontally */
+        align-items: center; /* Center the content vertically */
+        overflow: hidden;
+        font-family: "Pirata One", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+    @keyframes flow {
+        to {
+            transform: translateX(00%);
+        }
+        from {
+            transform: translateX(-100%);
+        }
+    }
+    .scroll-right .yeah {
+        animation: flow 3s infinite linear; /* Adjust animation duration as needed */
+    }
+    .scroll-left .yeah {
+        animation: flow-reverse 3s infinite linear; /* Animation for scrolling left */
+    }
+    @keyframes flow-reverse {
+        to {
+            transform: translateX(-100%);
+        }
+        from {
+            transform: translateX(00%);
+        }
+    }
+</style>
+<script>
+    let add = document.querySelector(".scroll-left")
+function run(){
+    for(let a=0 ; a<20; a++){
+      let li = document.createElement("div")
+      li.className =  "yeah";
+      li.innerHTML = "YEAH"
+      add.appendChild(li)
+
+    }
+     for(let b=0;b<10;b++){
+        let scrollleft = document.querySelector(".scroll-left").cloneNode(true)
+        let scrollright = document.querySelector(".scroll-right").cloneNode(true)
+        // let  main = document.querySelector(".main")
+        // let addlft = document.createElement("div")
+        // let addrht = document.createElement("div")
+        // addlft.className = "scroll-left"
+        // addrht.className = "scroll-right"
+        document.body.appendChild(scrollright)
+        document.body.appendChild(scrollleft)
+        
+        
+     }
+}
+    run();
+</script>
+</html>
